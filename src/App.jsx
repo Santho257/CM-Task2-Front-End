@@ -17,7 +17,7 @@ function App() {
 
   const fetchData = async (tabName, func) => {
     try {
-      let result = await axios(`http://localhost:3000/${tabName}`);
+      let result = await axios(`http://localhost:2507/${tabName}`);
       func(result.data);
     }
     catch (err) {

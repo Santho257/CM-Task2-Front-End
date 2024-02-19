@@ -12,7 +12,7 @@ function Search() {
     const fetchData = async () => {
         try {
             if(document.getElementById("search").value!=''){
-                let result = await axios(`http://localhost:3000/Product/search=${document.getElementById("search").value}`);
+                let result = await axios(`http://localhost:2507/Product/search=${document.getElementById("search").value}`);
                 setSearchData(result.data.search);
                 setRelatedData(result.data.related);
             }
