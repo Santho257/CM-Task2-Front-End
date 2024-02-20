@@ -15,7 +15,7 @@ function Search() {
                 let result = await axios(`http://localhost:3001/Product/search=${document.getElementById("search").value}`);
                 setSearchData(result.data.search);
                 setRelatedData(result.data.related);
-                console.log(searchData, relatedData);
+                //console.log(searchData, relatedData);
             }
         }
         catch (err) {
