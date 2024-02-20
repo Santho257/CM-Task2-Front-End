@@ -15,6 +15,7 @@ function Search() {
                 let result = await axios(`http://localhost:3001/Product/search=${document.getElementById("search").value}`);
                 setSearchData(result.data.search);
                 setRelatedData(result.data.related);
+                console.log(searchData, relatedData);
             }
         }
         catch (err) {
@@ -43,7 +44,7 @@ function Search() {
                     }
                 }}
             /></div>
-            {searchTerm.search ? <>
+            {searchTerm.search && searchData!=undefined && relatedData!=undefined ? <>
             <ProductTable title="Search Results" productData={searchData} isSearch={true} />
             <ProductTable title={(searchData.length>0)?"Related Products":"Products You may like"} productData={relatedData} isSearch={true} />
             </> : null}
