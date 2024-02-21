@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:latest
 WORKDIR "/app/Front End"
 RUN git clone https://github.com/Santho257/CM-Task2-Front-End .
 RUN npm install
