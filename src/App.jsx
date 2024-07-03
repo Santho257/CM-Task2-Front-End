@@ -17,7 +17,7 @@ function App() {
 
   const fetchData = async (tabName, func) => {
     try {
-      let result = await axios(`http://localhost:3001/${tabName}`);
+      let result = await axios(`http://localhost:3000/${tabName}`);
       // console.log(result.data);
       func(result.data);
     }
@@ -30,9 +30,10 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              <Search/>
+              {/* <Search/>
               <Button href="/Category/page=1" value="Categories" />
-              <Button href="/Product/page=1" value="Products" />
+              <Button href="/Product/page=1" value="Products" /> */}
+              <CategoryTable categoryData={categoryData} />
             </>}
           />
 

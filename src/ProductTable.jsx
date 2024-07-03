@@ -86,8 +86,8 @@ function ProductTable({ productData, categoryData, isSearch, title }) {;
                         <Paginator pageNo={pageNo} maxPage={maxPage} buttons='8' type='Product' />
                     )
                 }
-            </>) : <>{(catId && !isSearch) ? <button onClick={() => navi('/Category/page=1')}>Categories</button>
-                : (!isSearch) ?<button onClick={() => navi('/')}>Home</button>: null}
+            </>) : <>{(!isSearch) ? <button onClick={() => navi('/Category/page=1')}>Categories</button>
+                : null}
                 <h2>{title}</h2>
                 <p>No Datas Found</p></>}</>)
 }

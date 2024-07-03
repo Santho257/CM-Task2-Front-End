@@ -1,11 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 function Paginator({pageNo,maxPage,type}){
     const navi = useNavigate();
-    /* <div className='paginator'>
-            <button onClick={()=>{pageNo=Math.max(pageNo-1,1);navi(`/${type}/page=${pageNo}`)}}>Previous Page</button>
-            <p>Page: {pageNo} / {maxPage}</p>
-            <button onClick={()=>{pageNo=Math.min(pageNo+1,maxPage);navi(`/${type}/page=${pageNo}`)}}>Next Page</button>
-        </div> */
     const end = (pageNo>1)?(Math.min(maxPage, pageNo+6)):(Math.min(maxPage, pageNo+7));
     const start = (end<=8)?1:(Math.min(end-7,pageNo));
     let pages =[];

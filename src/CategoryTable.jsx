@@ -1,15 +1,19 @@
 import {useParams, useNavigate } from 'react-router-dom';
+import {useEffect } from 'react';
 import Error from './Error.jsx';
 import Paginator from './Paginator.jsx';
 import Search from './Search.jsx';
 
 function CategoryTable({categoryData}){ 
     let {pageNo} = useParams();
+    const navi = useNavigate();
+    useEffect(()=>{if(!pageNo){
+        navi('/Category/page=1');
+    }},[]) 
     if(/^page=[0-9]+$/.test(pageNo))
         pageNo= parseInt(pageNo.slice(5));
     else
         return(<Error/>);
-    const navi = useNavigate();
     const maxPage = (categoryData.length)?Math.ceil(categoryData.length / 10):1;
     if(pageNo > maxPage)   return(<Error/>);
     const pageDatas = categoryData.slice((pageNo-1)*10,pageNo*10);
@@ -17,7 +21,7 @@ function CategoryTable({categoryData}){
         <>
         <Search />
         <div className = "header" id="catHeader">
-            <button onClick={()=>navi('/')}>Home</button>
+            <button onClick={()=>navi('/Product/page=1')}>Products</button>
             <h2>Categories</h2>
         </div>
         <table id="catTable">
