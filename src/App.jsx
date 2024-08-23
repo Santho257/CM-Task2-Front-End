@@ -1,12 +1,11 @@
-import Button from './Button.jsx';
+import Button from './components/Button';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CategoryTable from './CategoryTable.jsx';
-import Error from './Error.jsx';
-import ProductTable from './ProductTable.jsx';
-import Search from './Search.jsx';
-import './App.css'
+import './App.css';
+import CategoryTable from './components/CategoryTable'
+import ProductTable from './components/ProductTable'
+import Search from './components/Search'
 
 function App() {
   const [categoryData, setCategoryData] = useState([]);
